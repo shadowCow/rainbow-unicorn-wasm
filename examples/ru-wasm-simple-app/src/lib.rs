@@ -37,7 +37,7 @@ impl AppStateContainer {
     }
 }
 impl StateContainer for AppStateContainer {
-    fn update(&self, timestamp_millis: f64) -> Vec<GraphicsPrimitive> {
+    fn update(&self, timestamp_millis: f64) -> Vec<GeometricPrimitive> {
         let rect_x_offset = 400.0 * oscillating_proportion(timestamp_millis, 1000.0);
         let rect_left = (50.0 + rect_x_offset) as u32;
 
@@ -45,9 +45,9 @@ impl StateContainer for AppStateContainer {
     }
 }
 
-fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> {
+fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GeometricPrimitive> {
     vec![
-        GraphicsPrimitive::Rectangle {
+        GeometricPrimitive::Rectangle {
             data: RectangleData {
                 left: moving_rect_left,
                 top: 75,
@@ -60,7 +60,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 color: "blue".to_string()
             }
         },
-        GraphicsPrimitive::Rectangle {
+        GeometricPrimitive::Rectangle {
             data: RectangleData {
                 left: 600,
                 top: 400,
@@ -73,7 +73,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 color: "pink".to_string()
             }
         },
-        GraphicsPrimitive::Line {
+        GeometricPrimitive::Line {
             data: LineData {
                 x1: 250,
                 y1: 275,
@@ -85,7 +85,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 width: 5
             }
         },
-        GraphicsPrimitive::Text {
+        GeometricPrimitive::Text {
             data: TextData {
                 x: 300,
                 y: 25,
@@ -96,7 +96,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 color: "#FF6347".to_string()
             }
         },
-        GraphicsPrimitive::Ellipse {
+        GeometricPrimitive::Ellipse {
             data: EllipseData {
                 cx: 400,
                 cy: 100,
@@ -108,7 +108,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 width: 5
             }
         },
-        GraphicsPrimitive::Polygon {
+        GeometricPrimitive::Polygon {
             points: vec![
                 Point { x: 20, y: 20 },
                 Point { x: 30, y: 20 },
@@ -118,7 +118,7 @@ fn example_graphics_primitives(moving_rect_left: u32) -> Vec<GraphicsPrimitive> 
                 color: "yellow".to_string()
             }
         },
-        GraphicsPrimitive::RuPath {
+        GeometricPrimitive::RuPath {
             data: PathData {
                 start_x: 300,
                 start_y: 400,
